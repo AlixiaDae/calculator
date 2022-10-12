@@ -21,11 +21,31 @@ function operate(a,b) {
     */
 }
 
-let btns = document.querySelectorAll('button');
-let display = document.querySelector('.output');
 
-btns.forEach(button => {
-    button.addEventListener('click', () => {
-        display.innerHTML = button.innerHTML;
+
+const firstOperand = document.getElementById('prev-operand');
+const secOperand = document.getElementById('next-operand');
+const numBtns = document.querySelectorAll('.calc-numbers');
+const operators = document.querySelectorAll('.calc-operator');
+const clear = document.querySelector('.calc-clear');
+const del = document.querySelector('.calc-del');
+
+clear.addEventListener('click', () => {
+    firstOperand.innerHTML = '';
+    secOperand.innerHTML = '';
+})
+
+
+operators.forEach(operator => {
+    operator.addEventListener('click', () => {
+            firstOperand.innerHTML += operator.innerHTML;
+        
+    })
+})
+
+
+numBtns.forEach(numBtn => {
+    numBtn.addEventListener('click', () => {
+        firstOperand.innerHTML += numBtn.innerHTML;
     })
 })
