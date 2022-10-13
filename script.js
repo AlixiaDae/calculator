@@ -23,11 +23,27 @@ function clear() {
 
 
 function calculate() {
-    if(operator == '+') {
+    switch(operator) {
+    case '+' :
         secOperand.innerHTML = '';
-        firstOperand.innerHTML = add(a,b);
-    } else {
-        firstOperand.innerHTML = 'Error';
+        result = add(a,b);
+        firstOperand.innerHTML = result;
+        break;
+    case '-' :
+        secOperand.innerHTML = '';
+        result = subtract(a,b);
+        firstOperand.innerHTML = result;
+        break;
+    case '*' :
+        secOperand.innerHTML = '';
+        result = multiply(a,b);
+        firstOperand.innerHTML = result;
+        break;
+    case '/' :
+        secOperand.innerHTML = '';
+        result = divide(a,b);
+        firstOperand.innerHTML = result;
+        break;
     }
 }
 
@@ -38,11 +54,16 @@ const numBtns = document.querySelectorAll('.calc-numbers');
 const operators = document.querySelectorAll('.calc-operator');
 const clearBtn = document.querySelector('.calc-clear');
 const del = document.querySelector('.calc-del');
-const eq = document.querySelector('.calc-equals');
+const equals = document.querySelector('.calc-equals');
 
 let a = '';
 let b = '';
 let operator = '';
+let result = '';
+
+clearBtn.addEventListener('click', () => {
+    clear()
+});
 
 /*Store numbers in display to a variable
 Pick an operator, store in a variable. and clear display
@@ -50,12 +71,7 @@ Store second number to another variable
 Equals btn must clear display, apply operator on first and second, and display result
 */
 
-
-clearBtn.addEventListener('click', () => {
-    clear()
-});
-
-eq.addEventListener('click', () => {
+equals.addEventListener('click', () => {
     calculate();
 })
 
