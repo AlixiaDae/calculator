@@ -5,13 +5,21 @@
     margin-top: 50px;
 }
 
-.output {
+.output  {
     border: 4px solid rgb(85, 79, 79);
     margin: auto;
     height: 100px;
     width: 330px;
-    font-size: 32px;
     text-align: right;
+    font-size: 3vw;
+    resize: both;
+    overflow: auto;
+}
+
+.output > span {
+    height: 100px;
+    width: 330px;
+    padding: 2px;
 }
 
 .calc-grid {

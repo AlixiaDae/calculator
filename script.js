@@ -75,14 +75,12 @@ equals.addEventListener('click', () => {
     calculate();
 })
 
-
 operators.forEach(e => {
     e.addEventListener('click', () => {
         firstOperand.innerHTML = '';
         return operator = e.innerHTML;
     })
 })
-
 
 numBtns.forEach(numBtn => {
     numBtn.addEventListener('click', () => {
