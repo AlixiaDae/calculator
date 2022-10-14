@@ -77,8 +77,15 @@ equals.addEventListener('click', () => {
 
 operators.forEach(e => {
     e.addEventListener('click', () => {
+        if (!result) {
         firstOperand.innerHTML = '';
         return operator = e.innerHTML;
+    }   else {
+        a = result;
+        b = '';
+        firstOperand.innerHTML = '';
+        return operator = e.innerHTML;
+    } 
     })
 })
 
