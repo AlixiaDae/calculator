@@ -18,6 +18,7 @@ function clear() {
     a = '';
     b = '';
     operator = '';
+    result = '';
     firstOperand.innerHTML = '';
 }
 
@@ -25,22 +26,22 @@ function clear() {
 function calculate() {
     switch(operator) {
     case '+' :
-        secOperand.innerHTML = '';
+        firstOperand.innerHTML = '';
         result = add(a,b);
         firstOperand.innerHTML = result;
         break;
     case '-' :
-        secOperand.innerHTML = '';
+        firstOperand.innerHTML = '';
         result = subtract(a,b);
         firstOperand.innerHTML = result;
         break;
     case '*' :
-        secOperand.innerHTML = '';
+        firstOperand.innerHTML = '';
         result = multiply(a,b);
         firstOperand.innerHTML = result;
         break;
     case '/' :
-        secOperand.innerHTML = '';
+        firstOperand.innerHTML = '';
         result = divide(a,b);
         firstOperand.innerHTML = result;
         break;
@@ -65,14 +66,30 @@ clearBtn.addEventListener('click', () => {
     clear()
 });
 
+/*If a is displayed, delete last character and save new a
+If b is displayed, delete last character and save new b */
+
+del.addEventListener('click', () => {
+      if (!operator) {
+        firstOperand.innerHTML = firstOperand.innerHTML.slice(0,-1);
+        a = firstOperand.innerHTML;
+    } else {
+        firstOperand.innerHTML = firstOperand.innerHTML.slice(0,-1);
+        b = firstOperand.innerHTML;
+    }
+})
+
 /*Store numbers in display to a variable
 Pick an operator, store in a variable. and clear display
 Store second number to another variable
 Equals btn must clear display, apply operator on first and second, and display result
 */
 
+/*Remove operator to allow a new operator for a new calculation */
+
 equals.addEventListener('click', () => {
     calculate();
+    operator = '';
 })
 
 operators.forEach(e => {
@@ -94,9 +111,11 @@ numBtns.forEach(numBtn => {
     if(!operator) { 
         a += numBtn.innerHTML;
         firstOperand.innerHTML = a;
+        a = firstOperand.innerHTML;
     } else {
         b += numBtn.innerHTML;
-        secOperand.innerHTML = b;
+        firstOperand.innerHTML = b;
+        b = firstOperand.innerHTML;
     }
     })
 })
