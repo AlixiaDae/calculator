@@ -45,7 +45,12 @@ function calculate() {
         result = divide(a,b);
         firstOperand.innerHTML = result;
         break;
+    case '' :
+        firstOperand.innerHTML = firstOperand.innerHTML;
+        break;
     }
+    
+
 }
 
 
@@ -85,26 +90,53 @@ Store second number to another variable
 Equals btn must clear display, apply operator on first and second, and display result
 */
 
-/*Remove operator to allow a new operator for a new calculation */
+/*Remove operator to allow a new operator for a new calculation
+Sets a as result to allow consecutive addition of operators without needing to clear everything after equals is clicked */
 
 equals.addEventListener('click', () => {
     calculate();
+    a = result;
+    b = '';
     operator = '';
 })
+
+/*Add consecutive operators
+when operator is clicked after a and b are set, calculate and make the result a new a
+*/
+
+operators.forEach(e => {
+    e.addEventListener('click', () => {
+        if(!operator) {
+            firstOperand.innerHTML = '';
+            operator = e.innerHTML;
+        } else {
+            calculate();
+            a = result;
+            b = '';
+            operator = e.innerHTML;
+        }
+    })
+})
+
+
+/*Refactor to allow consecutive operators without having to click the equals button
 
 operators.forEach(e => {
     e.addEventListener('click', () => {
         if (!result) {
-        firstOperand.innerHTML = '';
-        return operator = e.innerHTML;
-    }   else {
-        a = result;
+        calculate();
         b = '';
         firstOperand.innerHTML = '';
         return operator = e.innerHTML;
+    }   else {
+        
+        firstOperand.innerHTML = '';
+        a = result;
+        b = '';
+        return operator = e.innerHTML;
     } 
     })
-})
+})*/
 
 numBtns.forEach(numBtn => {
     numBtn.addEventListener('click', () => {
