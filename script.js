@@ -153,7 +153,7 @@ numBtns.forEach(numBtn => {
 })
 
 const btns = document.querySelectorAll('button');
-const sound = new Audio('../sound/zapsplat_office_calculator_button_single_press_003_81853.mp3')
+const sound = new Audio('./zapsplat_office_calculator_button_single_press_003_81853.mp3')
 
 btns.forEach(btn => {
     btn.addEventListener('click', () => {
