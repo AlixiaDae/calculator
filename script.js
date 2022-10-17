@@ -95,6 +95,9 @@ Sets a as result to allow consecutive addition of operators without needing to c
 
 equals.addEventListener('click', () => {
     calculate();
+    if(result == 'Infinity') {
+        firstOperand.innerHTML = `That ain't right...`;
+    }
     a = result;
     b = '';
     operator = '';
