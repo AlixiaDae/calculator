@@ -152,3 +152,25 @@ numBtns.forEach(numBtn => {
     })
 })
 
+const btns = document.querySelectorAll('button');
+const sound = new Audio('../sound/zapsplat_office_calculator_button_single_press_003_81853.mp3')
+
+btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        sound.currentTime = 0;
+        sound.play();
+        btn.classList.add('playing');
+    })
+})
+
+function removeTransition(e) {
+    if(e.propertyName !== 'font-size') {
+        return;
+    } else {
+        this.classList.remove('playing');
+    }
+}
+
+btns.forEach(btn => {
+    btn.addEventListener('transitionend', removeTransition)
+})
