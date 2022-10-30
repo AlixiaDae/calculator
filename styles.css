@@ -1,5 +1,9 @@
 body {
-    padding-top: 130px;
+    margin: 0;
+    padding-top: 90px;
+    background-image: linear-gradient(#f7e4e1,#ac8383);
+    height: 100vh;
+    box-sizing: border-box;
 }
 
 .calculator {
