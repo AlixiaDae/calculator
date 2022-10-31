@@ -6,35 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="calculator">
-    <div class="name"><em>Mint Calculator</em></div>
-    <div class="output">
-        <span id="first-operand"></span>
-        <span id="next-operand"></span>
+    <div class="calculator-container">
+        <div class="screen">
+            <div data-number-operand></div>
+            <div data-operand></div>
+        </div>
+        <div class="button-grid">
+
+            <button data-clear>AC</button>
+            <button data-key="Backspace" data-delete>Del</button>
+            <button data-key="+" data-operation>+</button>
+            <button data-key="-" data-operation>-</button>
+
+            <button data-key="1" data-numbers>1</button>
+            <button data-key="2" data-numbers>2</button>
+            <button data-key="3" data-numbers>3</button>
+            <button data-key="*" data-operation>*</button>
+
+            <button data-key="4" data data-numbers>4</button>
+            <button data-key="5" data-numbers>5</button>
+            <button data-key="6" data-numbers>6</button>
+            <button data-key="/" data-operation>/</button>
+
+            <button data-key="7" data-numbers>7</button>
+            <button data-key="8" data-numbers>8</button>
+            <button data-key="9" data-numbers>9</button>
+            <button data-key="=" data-equals>=</button>
+            <button data-key="0" data-numbers class="zero">0</button>
+            <button data-key="." data-numbers>.</button>
+
+        </div>
     </div>
-<div class="calc-grid">
-    <button class="calc-clear">AC</button>
-    <button class="calc-del">Del</button>
-    <button class="calc-operator">+</button>
-    <button class="calc-operator">-</button>
-    <button class="calc-numbers">1</button>
-    <button class="calc-numbers">2</button>
-    <button class="calc-numbers">3</button>
-    <button class="calc-operator">*</button>
-    <button class="calc-numbers">4</button>
-    <button class="calc-numbers">5</button>
-    <button class="calc-numbers">6</button>
-    <button class="calc-operator">/</button>
-    <button class="calc-numbers">7</button>
-    <button class="calc-numbers">8</button>
-    <button class="calc-numbers">9</button>
-    <button class="calc-equals up">=</button>
-    <button class="calc-numbers span">0</button>
-    <button class="calc-numbers">.</button>
-</div>
-</div>
 
     <script src="./script.js"></script>
 </body>
