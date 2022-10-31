@@ -45,21 +45,20 @@ function allClear() {
 function delNum() {
     if(b) {
         numOperand.innerText = numOperand.innerText.slice(0,-1)
+        b = numBtns.innerText
     } else if(operator) {
         operator = '';
         operand.innerText = operator
+        operand.innerText
     } else {
         numOperand.innerText = numOperand.innerText.slice(0,-1)
+        a = numOperand.innerText
     }
 }
 
 function chooseNum(num) {
     num.addEventListener('click', () => {
-        if(result) {
-            allClear()
-            numOperand.innerText += num.innerText
-            a = numOperand.innerText
-        } else if(!operator) {
+        if(!operator) {
             numOperand.innerText += num.innerText
             a = numOperand.innerText;
         } else {
@@ -70,20 +69,26 @@ function chooseNum(num) {
 }
 
 function chooseOperator(op) {
-    if(result) {
-        a = result
-        operand.innerText += a
-        result = ''
-    } if(!operator) {
+    if(!operator) {
         operator = op.innerText;
         operand.innerText = operator;
         operand.innerText += numOperand.innerText
-        let array = Array.from(operand.innerText)
-        array.push(array.shift())
-        operand.innerText = array.join('')
+        let operandArray = Array.from(operand.innerText)
+        operandArray.push(operandArray.shift())
+        operand.innerText = operandArray.join('')
         numOperand.innerText = '';
     } else {
-        operator = operator;
+        let operandArray = Array.from(operand.innerText)
+        operator = operandArray.pop()
+        calculate(a,b)
+        a = result
+        operator = op.innerText
+        operand.innerText = operator
+        operand.innerText += numOperand.innerText
+        let resultArray = Array.from(operand.innerText)
+        resultArray.push(resultArray.shift())
+        operand.innerText = resultArray.join('')
+        numOperand.innerText = ''
     }
 }
 
