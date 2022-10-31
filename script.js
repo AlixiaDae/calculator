@@ -36,10 +36,12 @@ function calculate(a,b) {
 
 
 function allClear() {
-    numOperand.innerText = '';
-    operand.innerText = '';
+    a = '';
+    b = '';
     operator = '';
     result = '';
+    numOperand.innerText = '';
+    operand.innerText = '';
 }
 
 function delNum() {
@@ -69,25 +71,18 @@ function chooseNum(num) {
 }
 
 function chooseOperator(op) {
-    if(!operator) {
-        operator = op.innerText;
-        operand.innerText = operator;
-        operand.innerText += numOperand.innerText
-        let operandArray = Array.from(operand.innerText)
-        operandArray.push(operandArray.shift())
-        operand.innerText = operandArray.join('')
-        numOperand.innerText = '';
-    } else {
-        let operandArray = Array.from(operand.innerText)
-        operator = operandArray.pop()
+    if(a&&b) {
         calculate(a,b)
         a = result
+        result = ''
         operator = op.innerText
         operand.innerText = operator
         operand.innerText += numOperand.innerText
-        let resultArray = Array.from(operand.innerText)
-        resultArray.push(resultArray.shift())
-        operand.innerText = resultArray.join('')
+        numOperand.innerText = ''
+    } else {
+        operator = op.innerText
+        operand.innerText = operator
+        operand.innerText += numOperand.innerText
         numOperand.innerText = ''
     }
 }
@@ -138,6 +133,8 @@ window.addEventListener('keydown', (e) => {
         let array = Array.from(operand.innerText)
         array.push(array.shift())
         operand.innerText = array.join('')
+        a = numOperand.innerText
+        console.log(a)
         numOperand.innerText = '';
     } else if(e.key === '=') {
         calculate(a,b)
